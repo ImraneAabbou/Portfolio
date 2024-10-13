@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link, useNavigate, useNavigation } from 'react-router-dom';
 import { styles } from '../styles';
 import { navLinks } from '../constants';
-import { close, menu, logo, logotext } from '../assets';
+import { CgMenuMotion } from "react-icons/cg";
+import { MdOutlineClose } from "react-icons/md";
 
 const Navbar = () => {
   const [active, setActive] = useState('');
@@ -20,27 +21,24 @@ const Navbar = () => {
             setActive('');
             window.scrollTo(0, 0);
           }}>
-          <img
-            src={logo} // your logo comes here
-            alt="logo"
-            className="sm:w-[50px] sm:h-[50px] w-[45px] h-[45px] object-contain"
-          />
 
-          {/* if you have text you want besides your logo it comes here.
-          Otherwise delete this if you don't need it. */}
-          <img
-            src={logotext}
-            alt="logo"
-            className="sm:w-[90px] sm:h-[90px] w-[85px] h-[85px] -ml-[0.6rem] object-contain"
-          />
+          <div className="flex flex-col font-mova tracking-wider text-eerieBlack uppercase my-4">
+            <div className="text-2xl tracking-widest">IMRANE</div>
+            <div className="text-sm text-battleGray font-semibold flex justify-between">
+              {
+                "AABBOU".split("")
+                  .map((c, i) => <span key={i}>{c}</span>)
+              }
+            </div>
+          </div>
+
         </Link>
-        <ul className="list-none hidden sm:flex flex-row gap-14 mt-2">
+        <ul className="list-none hidden sm:flex flex-row gap-7 md:gap-16 mt-2">
           {navLinks.map((nav) => (
             <li
               key={nav.id}
-              className={`${
-                active === nav.title ? 'text-french' : 'text-eerieBlack'
-              } hover:text-taupe text-[21px] font-medium font-mova 
+              className={`${active === nav.title ? 'text-french' : 'text-eerieBlack'
+                } hover:text-taupe text-[21px] font-medium font-mova 
                 uppercase tracking-[3px] cursor-pointer nav-links`}
               onClick={() => setActive(nav.title)}>
               <a href={`#${nav.id}`}>{nav.title}</a>
@@ -53,28 +51,22 @@ const Navbar = () => {
           {toggle ? (
             <div
               className={`p-6 bg-flashWhite opacity-[0.98] absolute 
-                top-0 left-0 w-screen h-[100vh] z-10 menu ${
-                  toggle ? 'menu-open' : 'menu-close'
+                top-0 left-0 w-screen h-[100vh] z-10
                 }`}>
-              <div className="flex justify-end">
-                <img
-                  src={close}
-                  alt="close"
-                  className="w-[22px] h-[22px] object-contain cursor-pointer"
-                  onClick={() => setToggle(!toggle)}
-                />
+              <div className="flex justify-end text-black mt-3">
+                <button onClick={() => setToggle(!toggle)}>
+                  <MdOutlineClose size={32} />
+                </button>
               </div>
               <ul
-                className="list-none flex flex-col -gap-[1rem] 
-                items-start justify-end mt-[10rem] -ml-[35px]">
+                className="list-none flex flex-col gap-16
+                items-start justify-end mt-[10rem] w-fit mx-auto">
                 {navLinks.map((nav) => (
                   <li
-                    id={nav.id}
                     key={nav.id}
-                    className={`${
-                      active === nav.title ? 'text-french' : 'text-eerieBlack'
-                    } text-[88px] font-bold font-arenq 
-                      uppercase tracking-[1px] cursor-pointer`}
+                    className={`${active === nav.title ? 'ms-12 text-french' : 'text-eerieBlack'
+                      } font-bold font-mova text-5xl
+                      uppercase cursor-pointer`}
                     onClick={() => {
                       setToggle(!toggle);
                       setActive(nav.title);
@@ -85,12 +77,9 @@ const Navbar = () => {
               </ul>
             </div>
           ) : (
-            <img
-              src={menu}
-              alt="menu"
-              className="w-[34px] h-[34px] object-contain cursor-pointer"
-              onClick={() => setToggle(!toggle)}
-            />
+            <button onClick={() => setToggle(!toggle)}>
+              <CgMenuMotion className='text-black' size={32} />
+            </button>
           )}
         </div>
       </div>

@@ -2,270 +2,200 @@ import {
   frontend,
   backend,
   ux,
-  prototyping,
   javascript,
   typescript,
   html,
   css,
+  sass,
   reactjs,
+  nextjs,
   redux,
+  framerMotion,
   tailwind,
   nodejs,
   git,
   figma,
-  docker,
-  postgresql,
-  rubyrails,
-  graphql,
-  komikult,
-  leaderboard,
-  math,
-  movie,
-  nyeusi,
-  space,
-  coverhunt,
-  dcc,
-  kelhel,
-  microverse,
-} from '../assets';
+  mysql,
+  mongodb,
+  bash,
+  EspaceCrecheImage,
+  TaalimAtlass,
+  php,
+} from "../assets";
+import { IoSchool } from "react-icons/io5";
+import { BiSolidInstitution } from "react-icons/bi";
+import { SiGamejolt } from "react-icons/si";
+import { SiRetroarch } from "react-icons/si";
+
+export const resumePublicPath = "/cv.pdf";
 
 export const navLinks = [
   {
-    id: 'about',
-    title: 'About',
+    id: "about",
+    title: "About",
   },
   {
-    id: 'projects',
-    title: 'Projects',
+    id: "projects",
+    title: "Projects",
   },
   {
-    id: 'contact',
-    title: 'Contact',
+    id: "contact",
+    title: "Contact",
   },
 ];
 
-const services = [
+export const services = [
   {
-    title: 'Frontend Developer',
+    title: "Frontend Developer",
     icon: frontend,
   },
   {
-    title: 'Backend Developer',
+    title: "Backend Developer",
     icon: backend,
   },
   {
-    title: 'UI/UX Design',
+    title: "UI/UX Design",
     icon: ux,
-  },
-  {
-    title: 'Software Prototyping',
-    icon: prototyping,
   },
 ];
 
-const technologies = [
+export const technologies = [
   {
-    name: 'HTML 5',
+    name: "HTML 5",
     icon: html,
   },
   {
-    name: 'CSS 3',
+    name: "CSS 3",
     icon: css,
   },
   {
-    name: 'JavaScript',
+    name: "JavaScript",
     icon: javascript,
   },
   {
-    name: 'TypeScript',
+    name: "TypeScript",
     icon: typescript,
   },
   {
-    name: 'React JS',
+    name: "NextJS",
+    icon: nextjs,
+  },
+  {
+    name: "React JS",
     icon: reactjs,
   },
   {
-    name: 'Redux Toolkit',
+    name: "Redux Toolkit",
     icon: redux,
   },
   {
-    name: 'Tailwind CSS',
+    name: "Framer Motion",
+    icon: framerMotion,
+  },
+  {
+    name: "Sass",
+    icon: sass,
+  },
+  {
+    name: "Tailwind CSS",
     icon: tailwind,
   },
   {
-    name: 'Node JS',
+    name: "Node JS",
     icon: nodejs,
   },
   {
-    name: 'Rails',
-    icon: rubyrails,
+    name: "PHP",
+    icon: php,
   },
   {
-    name: 'graphql',
-    icon: graphql,
+    name: "MySQL",
+    icon: mysql,
   },
   {
-    name: 'postgresql',
-    icon: postgresql,
+    name: "MongoDB",
+    icon: mongodb,
   },
+  //{
+  //  name: "Prisma",
+  //  icon: prisma,
+  //},
   {
-    name: 'git',
+    name: "Git",
     icon: git,
   },
   {
-    name: 'figma',
+    name: "Bash Scripting",
+    icon: bash,
+  },
+  {
+    name: "Figma",
     icon: figma,
   },
-  {
-    name: 'docker',
-    icon: docker,
-  },
 ];
 
-const experiences = [
+export const experiences = [
   {
-    title: 'Front-End Developer',
-    company_name: 'Cover Hunt',
-    icon: coverhunt,
-    iconBg: '#333333',
-    date: 'Aug 2021 - Feb 2022',
+    title: "High School Diploma in Physics and Chemistry",
+    company_name: "High School Ibn Al Haitam",
+    icon: IoSchool,
+    iconBg: "#333333",
+    date: "Sep 2022 - Aug 2023",
   },
   {
-    title: 'Mentor (Volunteer)',
-    company_name: 'Microverse',
-    icon: microverse,
-    iconBg: '#333333',
-    date: 'Mar 2022 - May 2022',
+    title: "Digital Development Speciality 1st Year at ISTA",
+    company_name: "Specialized Institute of Applied Technology Hay Hassani",
+    icon: BiSolidInstitution,
+    iconBg: "#333333",
+    date: "Sep 2023 - June 2023",
   },
   {
-    title: 'Junior Software Engineer',
-    company_name: 'Kelhel',
-    icon: kelhel,
-    iconBg: '#333333',
-    date: 'May 2022 - Oct 2022',
+    title: "Hackathon",
+    company_name: "Hackathon organized by ISGI Philips",
+    icon: SiGamejolt,
+    iconBg: "#333333",
+    date: "May 21, 2024",
   },
   {
-    title: 'Full Stack Developer',
-    company_name: 'Diversity Cyber Council',
-    icon: dcc,
-    iconBg: '#333333',
-    date: 'Sep 2022 - Present',
+    title: "QuickHack",
+    company_name: "Hackathon Organized by ISTA Hay Hassani",
+    icon: SiRetroarch,
+    iconBg: "#333333",
+    date: "June 11, 2024",
   },
+  {
+    title: "Fullstack Speciality, 2nd Year at ISTA",
+    company_name: "Specialized Institute of Applied Technology Hay Hassani",
+    icon: BiSolidInstitution,
+    iconBg: "#333333",
+    date: "Sep 2023 - Now",
+  },
+  //{
+  //  title: "Full Stack Developer",
+  //  company_name: "Diversity Cyber Council",
+  //  icon: dcc,
+  //  iconBg: "#333333",
+  //  date: "Sep 2022 - Present",
+  //},
 ];
 
-const projects = [
+export const projects = [
   {
-    id: 'project-1',
-    name: 'KomiKult',
-    description: 'A comic characters list app that displays Marvel characters.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'mongodb',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'tailwind',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: komikult,
-    repo: 'https://github.com/shaqdeff/KomiKult',
-    demo: 'https://shaqdeff.github.io/KomiKult/',
-  },
-  {
-    id: 'project-2',
-    name: 'Leaderboard',
+    id: 1,
+    name: "Espace Creche",
     description:
-      'A leaderboard list app that displays scores submitted by different players.',
-    tags: [
-      {
-        name: 'react',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'restapi',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'scss',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: leaderboard,
-    repo: 'https://github.com/shaqdeff/Leaderboard',
-    demo: 'https://shaqdeff.github.io/Leaderboard/',
+      "Full e-commerce website built with MERN, Typescript and Tailwindcss it comes with a blog, admin panel and supports product variants with different prices and images for each variant.",
+    image: EspaceCrecheImage,
+    repo: "https://github.com/ImraneAabbou/espace-creche-frontend",
+    demo: "https://espace-creche.fr/",
   },
   {
-    id: 'project-3',
-    name: 'Math Magicians',
-    description: 'This is a single-page calculator app built with React',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: math,
-    repo: 'https://github.com/shaqdeff/Math-Magicians',
-    demo: 'https://inspiring-medovik-37d3b3.netlify.app/',
-  },
-  {
-    id: 'project-4',
-    name: 'Movie Metro',
-    description: `A single-page application that allows users to search for any movie or show's ratings and its details.`,
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: movie,
-    repo: 'https://github.com/shaqdeff/Movie-Metro',
-    demo: 'https://movie-metro.netlify.app/',
-  },
-  {
-    id: 'project-5',
-    name: 'Nyeusi Fest Site',
+    id: 2,
+    name: "Taalim Atlass",
     description:
-      'This is a demo concert website for a music festival called Nyeusi.',
-    tags: [
-      {
-        name: 'nextjs',
-        color: 'blue-text-gradient',
-      },
-      {
-        name: 'supabase',
-        color: 'green-text-gradient',
-      },
-      {
-        name: 'css',
-        color: 'pink-text-gradient',
-      },
-    ],
-    image: nyeusi,
-    repo: 'https://github.com/shaqdeff/Nyeusi-Fest-Site',
-    demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
+      "Educational plateform for post-bac studies orientations for a friend, i was missioned to create a multi-step form & initiate the authentication logic for backend and modify on basic views like login & registration on vuexy template where NEXT.JS, typescript, tailwindcss, prisma and JWT was used.",
+    image: TaalimAtlass,
+    repo: "https://github.com/Yassin6up/Taalim-Atlass",
+    //demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
   },
 ];
-
-export { services, technologies, experiences, projects };

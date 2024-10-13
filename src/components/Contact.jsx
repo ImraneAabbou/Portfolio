@@ -4,7 +4,7 @@ import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
-import { send, sendHover } from '../assets';
+import { IoIosMail } from "react-icons/io";
 
 const Contact = () => {
   const formRef = useRef();
@@ -29,16 +29,16 @@ const Contact = () => {
     //click on create a new template then click on save.
     emailjs
       .send(
-        'serviceID', // paste your ServiceID here (you'll get one when your service is created).
-        'templateID', // paste your TemplateID here (you'll find it under email templates).
+        import.meta.env.VITE_EMAILJS_SERVICE_ID, // paste your ServiceID here (you'll get one when your service is created).
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID, // paste your TemplateID here (you'll find it under email templates).
         {
           from_name: form.name,
-          to_name: 'YourName', // put your name here.
+          to_name: import.meta.env.VITE_EMAILJS_YOUR_NAME, // put your name here.
           from_email: form.email,
-          to_email: 'youremail@gmail.com', //put your email here.
+          to_email: import.meta.env.VITE_EMAILJS_YOUR_MAIL, //put your email here.
           message: form.message,
         },
-        'yourpublickey' //paste your Public Key here. You'll get it in your profile section.
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY //paste your Public Key here. You'll get it in your profile section.
       )
       .then(
         () => {
@@ -64,7 +64,7 @@ const Contact = () => {
       className="-mt-[8rem] xl:flex-row flex-col-reverse 
       flex gap-10 overflow-hidden">
       <motion.div
-        variants={slideIn('left', 'tween', 0.2, 1)}
+        variants={slideIn('left', 'tween', 0.25, .5)}
         className="flex-[0.75] bg-jet p-8 rounded-2xl">
         <p className={styles.sectionSubText}>Get in touch</p>
         <h3 className={styles.sectionHeadTextLight}>Contact.</h3>
@@ -76,6 +76,7 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Name</span>
             <input
+              required
               type="text"
               name="name"
               value={form.name}
@@ -90,11 +91,12 @@ const Contact = () => {
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">Your Email</span>
             <input
+              required
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="What's your email?"
+              placeholder="For contact purpose only."
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -106,11 +108,12 @@ const Contact = () => {
               Your Message
             </span>
             <textarea
+              required
               rows="7"
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="What's your message?"
+              placeholder="Feel free to message. I will respond soon as I can !"
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -127,21 +130,9 @@ const Contact = () => {
             w-[100px] h-[45px] rounded-[10px] bg-night 
             hover:bg-battleGray hover:text-eerieBlack 
             transition duration-[0.2s] ease-in-out"
-            onMouseOver={() => {
-              document
-                .querySelector('.contact-btn')
-                .setAttribute('src', sendHover);
-            }}
-            onMouseOut={() => {
-              document.querySelector('.contact-btn').setAttribute('src', send);
-            }}>
-            {loading ? 'Sending' : 'Send'}
-            <img
-              src={send}
-              alt="send"
-              className="contact-btn sm:w-[26px] sm:h-[26px] 
-              w-[23px] h-[23px] object-contain"
-            />
+          >
+            {!loading ? <IoIosMail size={24} /> : ""}
+            {loading ? 'Sending...' : 'Send'}
           </button>
         </form>
       </motion.div>
