@@ -1,4 +1,3 @@
-import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { shaq, bwmap, worldmap } from '../assets';
 import { SectionWrapper } from '../hoc';
@@ -6,7 +5,7 @@ import { useContext } from 'react';
 import { LangContext } from '../providers/lang';
 
 const Hero = () => {
-  const { dict } = useContext(LangContext)
+  const { dict, lang } = useContext(LangContext)
 
   return (
     <>
@@ -25,8 +24,8 @@ const Hero = () => {
         />
       </div>
       <section
-        className="relative flex sm:flex-row flex-col w-full h-screen mx-auto 
-        sm:bg-hero bg-hero-mobile overflow-hidden">
+        className={`relative flex sm:flex-row flex-col w-full h-screen mx-auto 
+        ${lang == "ar" ? "sm:bg-heroReverse bg-heroMobileReverse" : "sm:bg-hero bg-heroMobile"} overflow-hidden`}>
         <div
           className={`absolute inset-0 top-[250px] 
           ${styles.paddingX} 
@@ -48,9 +47,9 @@ const Hero = () => {
                 {dict.fullname}
               </span>
             </h1>
-            <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
+            <bdi className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
               {dict.catchphrase}
-            </p>
+            </bdi>
           </div>
           <div
             className="w-screen flex flex-col items-start 
@@ -61,8 +60,7 @@ const Hero = () => {
 
         <div>
           <img
-            className="absolute bottom-0 hidden sm:block ml-[50vw] h-[90vh]
-            "
+            className={`absolute bottom-0 hidden sm:block ${lang == "ar" ? "-scale-x-100 mr-[50vw]" : "ml-[50vw]"} h-[90vh]`}
             src={shaq}
           />
         </div>

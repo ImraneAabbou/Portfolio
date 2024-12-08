@@ -36,16 +36,17 @@ const ExperienceCard = ({ experience }) => {
     icon={
       <experience.icon />
     }>
-    <div>
+    <bdi>
       <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
         {experience.title[lang]}
       </h3>
       <p
+        dir={document.dir}
         className="text-taupe text-[22px] font-semibold tracking-[1px]"
         style={{ margin: 0 }}>
         {experience.company_name[lang]}
       </p>
-    </div>
+    </bdi>
   </VerticalTimelineElement>
 };
 
@@ -59,7 +60,7 @@ const Experience = () => {
         </h2>
       </motion.div>
 
-      <div className="mt-20 flex flex-col">
+      <div className="mt-20 flex flex-col" dir="ltr">
         <VerticalTimeline className="vertical-timeline-custom-line">
           {experiences.map((experience, index) => (
             <ExperienceCard key={index} experience={experience} />

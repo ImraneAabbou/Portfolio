@@ -25,7 +25,7 @@ const ProjectCard = ({
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
       className={`relative ${active === id ? 'lg:flex-[3.5] flex-[10]' : 'group cursor-pointer lg:flex-[0.5] flex-[2]'
-        } flex items-center justify-center min-w-[170px] w-full transition-[flex] duration-500
+        } flex items-center justify-center min-w-[170px] w-full transition-[flex] duration-500 overflow-hidden
       h-[420px] card-shadow`}
       onClick={() => handleClick(id)}>
       <div
@@ -39,10 +39,10 @@ const ProjectCard = ({
       />
 
       {active !== id ? (
-        <div className="flex items-center justify-start pr-[4.5rem]">
+        <div className="bg-red-400 flex items-center start-1 justify-start pe-[4.5rem]">
           <h3
             className="font-extrabold font-beckman uppercase w-[200px] h-[30px] 
-        whitespace-nowrap sm:text-[27px] text-[18px] text-timberWolf opacity-50 group-hover:opacity-100 transition group-hover:scale-125 group-hover:-translate-x-2.5 tracking-[1px]
+        whitespace-nowrap sm:text-[27px] text-[18px] text-timberWolf opacity-50 group-hover:opacity-100 transition group-hover:scale-125 group-hover:start-x-2.5 tracking-[1px]
         absolute z-20 lg:-rotate-90
         leading-none">
             {name}

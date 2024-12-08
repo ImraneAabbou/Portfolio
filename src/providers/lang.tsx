@@ -37,7 +37,12 @@ export default function LangProvider({ children }) {
 
   useEffect(() => {
     setFirstRender(false);
+
+    document.documentElement.lang = lang
+    document.documentElement.dir = lang == "ar" ? "rtl" : "ltr"
+
     if (isFirstRender) return
+
 
     localStorage.setItem("lang", lang)
 
