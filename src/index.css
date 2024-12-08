@@ -14,16 +14,6 @@
   src: url('./fonts/beckman.otf');
 }
 
-@font-face {
-  font-family: 'Overcame Bold';
-  src: url('./fonts/overcame-bold.woff');
-}
-
-@font-face {
-  font-family: 'Overcame Outline';
-  src: url('./fonts/overcame-outline.woff');
-}
-
 * {
   margin: 0;
   padding: 0;

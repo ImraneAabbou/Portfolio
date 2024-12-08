@@ -1,12 +1,14 @@
-import { useState, useRef } from 'react';
+import { useState, useRef, useContext } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
 import { styles } from '../styles';
 import { SectionWrapper } from '../hoc';
 import { slideIn } from '../utils/motion';
 import { IoIosMail } from "react-icons/io";
+import {LangContext} from "../providers/lang"
 
 const Contact = () => {
+  const {dict} = useContext(LangContext)
   const formRef = useRef();
   const [form, setForm] = useState({
     name: '',
@@ -43,7 +45,6 @@ const Contact = () => {
       .then(
         () => {
           setLoading(false);
-          alert('Thank you. I will get back to you as soon as possible.');
 
           setForm({
             name: '',
@@ -66,22 +67,21 @@ const Contact = () => {
       <motion.div
         variants={slideIn('left', 'tween', 0.25, .5)}
         className="flex-[0.75] bg-jet p-8 rounded-2xl">
-        <p className={styles.sectionSubText}>Get in touch</p>
-        <h3 className={styles.sectionHeadTextLight}>Contact.</h3>
+        <h3 className={styles.sectionHeadTextLight}>{dict.contactTitle}</h3>
 
         <form
           ref={formRef}
           onSubmit={handleSubmit}
           className="mt-10 flex flex-col gap-6 font-poppins">
           <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Your Name</span>
+            <span className="text-timberWolf font-medium mb-4">{dict.formName}</span>
             <input
               required
               type="text"
               name="name"
               value={form.name}
               onChange={handleChange}
-              placeholder="What's your name?"
+              placeholder={dict.formNamePlaceholder}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -89,14 +89,14 @@ const Contact = () => {
             />
           </label>
           <label className="flex flex-col">
-            <span className="text-timberWolf font-medium mb-4">Your Email</span>
+            <span className="text-timberWolf font-medium mb-4">{dict.formEmail}</span>
             <input
               required
               type="email"
               name="email"
               value={form.email}
               onChange={handleChange}
-              placeholder="For contact purpose only."
+              placeholder={dict.formEmailPlaceholder}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -105,7 +105,7 @@ const Contact = () => {
           </label>
           <label className="flex flex-col">
             <span className="text-timberWolf font-medium mb-4">
-              Your Message
+              {dict.formMessage}
             </span>
             <textarea
               required
@@ -113,7 +113,7 @@ const Contact = () => {
               name="message"
               value={form.message}
               onChange={handleChange}
-              placeholder="Feel free to message. I will respond soon as I can !"
+              placeholder={dict.formMessagePlaceholder}
               className="bg-eerieBlack py-4 px-6
               placeholder:text-taupe
               text-timberWolf rounded-lg outline-none
@@ -125,14 +125,14 @@ const Contact = () => {
             type="submit"
             className="live-demo flex justify-center sm:gap-4 
             gap-3 sm:text-[20px] text-[16px] text-timberWolf 
-            font-bold font-beckman items-center py-5
-            whitespace-nowrap sm:w-[130px] sm:h-[50px] 
-            w-[100px] h-[45px] rounded-[10px] bg-night 
+            font-bold font-beckman items-center p-5
+            whitespace-nowrap sm:w-fit sm:h-[50px] 
+            rounded-[10px] bg-night 
             hover:bg-battleGray hover:text-eerieBlack 
             transition duration-[0.2s] ease-in-out"
           >
             {!loading ? <IoIosMail size={24} /> : ""}
-            {loading ? 'Sending...' : 'Send'}
+            {loading ? dict.sending : dict.send}
           </button>
         </form>
       </motion.div>

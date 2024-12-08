@@ -39,6 +39,10 @@ export const navLinks = [
     title: "Projects",
   },
   {
+    id: "experiences",
+    title: "Experiences",
+  },
+  {
     id: "contact",
     title: "Contact",
   },
@@ -136,55 +140,111 @@ export const technologies = [
 
 export const experiences = [
   {
-    title: "High School Diploma in Physics and Chemistry",
-    company_name: "High School Ibn Al Haitam",
+    title: {
+      en: "High School Diploma in Physics and Chemistry",
+      fr: "Baccalauréat en Physique et Chimie",
+    },
+    company_name: {
+      en: "High School Ibn Al Haitam",
+      fr: "Lycée Ibn Al Haitam",
+    },
     icon: IoSchool,
     iconBg: "#333333",
-    date: "Sep 2022 - Aug 2023",
+    date: {
+      en: "Sep 2022 - Aug 2023",
+      fr: "Sep 2022 - Août 2023",
+    },
   },
   {
-    title: "Digital Development Speciality 1st Year at ISTA",
-    company_name: "Specialized Institute of Applied Technology Hay Hassani",
+    title: {
+      en: "Digital Development Speciality 1st Year at ISTA",
+      fr: "Spécialité Développement Digital 1ère Année à l'ISTA",
+    },
+    company_name: {
+      en: "Specialized Institute of Applied Technology Hay Hassani",
+      fr: "Institut Spécialisé de Technologie Appliquée Hay Hassani",
+    },
     icon: BiSolidInstitution,
     iconBg: "#333333",
-    date: "Sep 2023 - June 2023",
+    date: {
+      en: "Sep 2023 - June 2023",
+      fr: "Sep 2023 - Juin 2023",
+    },
   },
   {
-    title: "Hackathon",
-    company_name: "Hackathon organized by ISGI Philips",
+    title: {
+      en: "Hackathon Philips",
+      fr: "Hackathon Philips",
+    },
+    company_name: {
+      en: "Hackathon organized by ISGI Philips",
+      fr: "Hackathon organisé par ISGI Philips",
+    },
     icon: SiGamejolt,
     iconBg: "#333333",
-    date: "May 21, 2024",
+    date: {
+      en: "May 21, 2024",
+      fr: "21 Mai, 2024",
+    },
   },
   {
-    title: "QuickHack",
-    company_name: "Hackathon Organized by ISTA Hay Hassani",
+    title: {
+      en: "QuickHack",
+      fr: "QuickHack",
+    },
+    company_name: {
+      en: "Hackathon Organized by ISTA Hay Hassani",
+      fr: "Hackathon organisé par l'ISTA Hay Hassani",
+    },
     icon: SiRetroarch,
     iconBg: "#333333",
-    date: "June 11, 2024",
+    date: {
+      en: "June 11, 2024",
+      fr: "11 Juin, 2024",
+    },
   },
   {
-    title: "Fullstack Speciality, 2nd Year at ISTA",
-    company_name: "Specialized Institute of Applied Technology Hay Hassani",
+    title: {
+      en: "Fullstack Speciality, 2nd Year at ISTA",
+      fr: "Spécialité Fullstack, 2ème Année à l'ISTA",
+    },
+    company_name: {
+      en: "Specialized Institute of Applied Technology Hay Hassani",
+      fr: "Institut Spécialisé de Technologie Appliquée Hay Hassani",
+    },
     icon: BiSolidInstitution,
     iconBg: "#333333",
-    date: "Sep 2023 - Now",
+    date: {
+      en: "Sep 2023 - Now",
+      fr: "Sep 2023 - Maintenant",
+    },
   },
   //{
-  //  title: "Full Stack Developer",
-  //  company_name: "Diversity Cyber Council",
+  //  title: {
+  //    en: "Full Stack Developer",
+  //    fr: "Développeur Full Stack",
+  //  },
+  //  company_name: {
+  //    en: "Diversity Cyber Council",
+  //    fr: "Diversity Cyber Council",
+  //  },
   //  icon: dcc,
   //  iconBg: "#333333",
-  //  date: "Sep 2022 - Present",
-  //},
+  //  date: {
+  //    en: "Sep 2022 - Present",
+  //    fr: "Sep 2022 - Présent",
+  //  },
+  // },
 ];
 
 export const projects = [
   {
     id: 1,
     name: "Espace Creche",
-    description:
-      "Full e-commerce website built with MERN, Typescript and Tailwindcss it comes with a blog, admin panel and supports product variants with different prices and images for each variant.",
+    description: {
+      en: "Full e-commerce website built with MERN, Typescript and Tailwindcss it comes with a blog, admin panel and supports product variants with different prices and images for each variant.",
+      fr: "Site Web de commerce électronique complet construit avec MERN, Typescript et Tailwindcss, il est livré avec un blog, un panneau d'administration et prend en charge les variantes de produits avec des prix et des images différents pour chaque variante.",
+    },
     image: EspaceCrecheImage,
     repo: "https://github.com/ImraneAabbou/espace-creche-frontend",
     demo: "https://espace-creche.fr/",
@@ -192,10 +252,15 @@ export const projects = [
   {
     id: 2,
     name: "Taalim Atlass",
-    description:
-      "Educational plateform for post-bac studies orientations for a friend, i was missioned to create a multi-step form & initiate the authentication logic for backend and modify on basic views like login & registration on vuexy template where NEXT.JS, typescript, tailwindcss, prisma and JWT was used.",
+    description: {
+      en: "Educational plateform for post-bac studies orientations for a friend, i was missioned to create a multi-step form & initiate the authentication logic for backend and modify on basic views like login & registration on vuexy template where NEXT.JS, typescript, tailwindcss, prisma and JWT was used.",
+      fr: "Plateforme pédagogique d'orientation d'études post-bac pour un ami, j'ai été missionné pour créer un formulaire en plusieurs étapes & initier la logique d'authentification pour le backend et modifier les vues de base comme la connexion & l'inscription sur le template vuexy où NEXT.JS, typescript, tailwindcss, prisma et JWT ont été utilisés.",
+    },
     image: TaalimAtlass,
     repo: "https://github.com/Yassin6up/Taalim-Atlass",
     //demo: 'https://shaqdeff.github.io/Nyeusi-Fest-Site/',
   },
 ];
+
+export const langs = ["en", "fr"];
+export const fallbackLang = "en";

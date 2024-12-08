@@ -5,13 +5,17 @@ import {
 import { motion } from 'framer-motion';
 import 'react-vertical-timeline-component/style.min.css';
 import { styles } from '../styles';
-import { experiences, resumePublicPath } from '../constants';
+import { experiences } from '../constants';
 import { SectionWrapper } from '../hoc';
 import { textVariant } from '../utils/motion';
 import { BiDotsHorizontalRounded } from "react-icons/bi";
+import { useContext } from 'react';
+import { LangContext } from "../providers/lang"
 
-const ExperienceCard = ({ experience }) => (
-  <VerticalTimelineElement
+const ExperienceCard = ({ experience }) => {
+  const { lang } = useContext(LangContext)
+
+  return <VerticalTimelineElement
     contentStyle={{
       background: '#eaeaec',
       color: '#292929',
@@ -24,7 +28,7 @@ const ExperienceCard = ({ experience }) => (
     date={
       <div>
         <h3 className="text-dim text-[18px] font-bold font-beckman">
-          {experience.date}
+          {experience.date[lang]}
         </h3>
       </div>
     }
@@ -34,26 +38,24 @@ const ExperienceCard = ({ experience }) => (
     }>
     <div>
       <h3 className="text-jetLight text-[24px] font-bold font-beckman tracking-[2px]">
-        {experience.title}
+        {experience.title[lang]}
       </h3>
       <p
-        className="text-taupe text-[22px] font-semibold font-overcameBold tracking-[1px]"
+        className="text-taupe text-[22px] font-semibold tracking-[1px]"
         style={{ margin: 0 }}>
-        {experience.company_name}
+        {experience.company_name[lang]}
       </p>
     </div>
   </VerticalTimelineElement>
-);
+};
 
 const Experience = () => {
+  const { dict } = useContext(LangContext)
   return (
     <>
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} sm:pl-16 pl-[2rem]`}>
-          My journey so far
-        </p>
         <h2 className={`${styles.sectionHeadText} sm:pl-16 pl-[2rem]`}>
-          Education & Experience.
+          {dict.experiencesTitle}
         </h2>
       </motion.div>
 
@@ -78,7 +80,7 @@ const Experience = () => {
             }>
 
             <h3 className="text-jetLight font-bold font-beckman tracking-[2px]">
-              For more details check <a href={resumePublicPath} target='_blank' className="underline underline-offset-4 decoration-2 hover:text-dim">my resume</a>
+              {dict.experiencesResume}
             </h3>
           </VerticalTimelineElement>
         </VerticalTimeline>
@@ -87,4 +89,4 @@ const Experience = () => {
   );
 };
 
-export default SectionWrapper(Experience, 'work');
+export default SectionWrapper(Experience, 'experiences');

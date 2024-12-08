@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { BiShow } from "react-icons/bi";
 import { motion } from 'framer-motion';
 import { SectionWrapper } from '../hoc';
@@ -6,6 +6,7 @@ import { styles } from '../styles';
 import { FaGithub } from "react-icons/fa";
 import { projects } from '../constants';
 import { fadeIn, textVariant, staggerContainer } from '../utils/motion';
+import { LangContext } from "../providers/lang"
 
 const ProjectCard = ({
   id,
@@ -18,6 +19,8 @@ const ProjectCard = ({
   active,
   handleClick,
 }) => {
+  const { lang } = useContext(LangContext)
+
   return (
     <motion.div
       variants={fadeIn('right', 'spring', index * 0.5, 0.75)}
@@ -74,7 +77,7 @@ const ProjectCard = ({
               className="text-silver sm:text-[14px] text-[12px] 
               max-w-3xl sm:leading-[24px] leading-[18px]
               font-poppins tracking-[1px]">
-              {description}
+              {description[lang]}
             </p>
             {
               !demo
@@ -105,22 +108,19 @@ const ProjectCard = ({
 
 const Projects = () => {
   const [active, setActive] = useState(projects[0].id);
+  const { dict } = useContext(LangContext)
 
   return (
     <div className="-mt-[6rem]">
       <motion.div variants={textVariant()}>
-        <p className={`${styles.sectionSubText} `}>Case Studies</p>
-        <h2 className={`${styles.sectionHeadTextLight}`}>Projects.</h2>
+        <h2 className={`${styles.sectionHeadTextLight}`}>{dict.projectsTitle}</h2>
       </motion.div>
 
       <div className="w-full flex">
         <motion.p
           variants={fadeIn('', '', 0.1, 1)}
-          className="mt-4 text-taupe text-[18px] max-w-3xl leading-[30px]">
-          These projects highlight what I’ve learned and how I apply it in real-world scenarios.<br />
-          Each one comes with a brief description and links to code repositories or live demos.<br />
-          They show my ability to handle complex problems, adapt to different technologies,
-          and manage projects effectively—though I’m always refining my skills as I go.
+          className="mt-4 text-taupe text-[18px] leading-[30px]">
+          {dict.projectsContent}
         </motion.p>
       </div>
 

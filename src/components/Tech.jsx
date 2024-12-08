@@ -1,16 +1,17 @@
 import { motion } from 'framer-motion';
 import { BallCanvas } from './canvas';
-import { SectionWrapper } from '../hoc';
 import { technologies } from '../constants';
 import { styles } from '../styles';
 import { textVariant } from '../utils/motion';
+import { useContext } from 'react';
+import { LangContext } from "../providers/lang"
 
 const Tech = () => {
+  const { dict } = useContext(LangContext)
   return (
-    <>
+    <div className={`${styles.padding} container mx-auto`}>
       <motion.div variants={textVariant()}>
-        <p className={styles.sectionSubTextLight}>My skills</p>
-        <h2 className={styles.sectionHeadTextLight}>Technologies.</h2>
+        <h2 className={styles.sectionHeadTextLight}>{dict.technologiesTitle}</h2>
       </motion.div>
 
       <div className="flex flex-wrap justify-center gap-10 mt-14">
@@ -20,8 +21,8 @@ const Tech = () => {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 };
 
-export default SectionWrapper(Tech, '');
+export default Tech;

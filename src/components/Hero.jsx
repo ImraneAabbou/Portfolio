@@ -1,8 +1,13 @@
 import { motion } from 'framer-motion';
 import { styles } from '../styles';
 import { shaq, bwmap, worldmap } from '../assets';
+import { SectionWrapper } from '../hoc';
+import { useContext } from 'react';
+import { LangContext } from '../providers/lang';
 
 const Hero = () => {
+  const { dict } = useContext(LangContext)
+
   return (
     <>
       <div className="absolute top-0 left-0 z-0 h-[100vh] w-screen">
@@ -35,17 +40,16 @@ const Hero = () => {
           <div>
             <h1
               className={`${styles.heroHeadText} text-eerieBlack font-poppins uppercase`}>
-              Hi, I'm{' '}
+              {dict.greeting}{' '}
               <span
                 className="sm:text-battleGray sm:text-[90px] 
                 text-eerieBlack text-[50px] font-mova
                 font-extrabold uppercase">
-                Imrane Aabbou
+                {dict.fullname}
               </span>
             </h1>
             <p className={`${styles.heroSubText} mt-2 text-eerieBlack`}>
-              Logic or art... <br className="sm:block hidden" />
-              — Why not both ?
+              {dict.catchphrase}
             </p>
           </div>
           <div
@@ -67,4 +71,4 @@ const Hero = () => {
   );
 };
 
-export default Hero;
+export default SectionWrapper(Hero, '');
